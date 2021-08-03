@@ -1,0 +1,18 @@
+@import '../../theme/typography.scss';
+@import '../../theme/colors.scss';
+
+.header {
+  text-align: center;
+}
+
+.header__main {
+  font-size: $large-1;
+  text-align: left;
+  margin: 0;
+  padding: 10px;
+  background-color: $primary;
+}
+
+.header__secondary {
+  font-size: $large-4;
+}
