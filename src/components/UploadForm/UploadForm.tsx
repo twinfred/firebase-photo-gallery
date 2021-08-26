@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './UploadForm.scss';
+import ProgressBar from '../ProgressBar/ProgressBar';
 
 enum PhotoTypes {
   'image/png',
@@ -28,8 +29,11 @@ const UploadForm = (): React.ReactElement => {
     <form className="image-form">
       <label htmlFor="FileUpload" className="sr-only" aria-labelledby="FileUploadError">Upload an image</label>
       <input id="FileUpload" type="file" accept="image/png, image/gif, image/jpeg" onChange={fileUploadHandler} />
-      {error && <p id="FileUploadError" className="error" role="alert" aria-live="polite">{error}</p>}
-      {photo && photo.name && <p>{photo.name}</p>}
+      <div className="image-form__output">
+        {error && <p id="FileUploadError" className="error" role="alert" aria-live="polite">{error}</p>}
+        {photo && photo.name && <p>{photo.name}</p>}
+        {photo && <ProgressBar photo={photo} setPhoto={setPhoto} setError={setError} />}
+      </div>
     </form>
   )
 };
